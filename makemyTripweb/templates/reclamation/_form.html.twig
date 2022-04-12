@@ -1,0 +1,29 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+
+
+    <div class="form-group">
+             <a style="color:black">Votre nom </a>
+        <br>
+        {{ form_widget(form.nomuser)}}
+        <div style="color:red">
+            {{ form_errors(form.nomuser)}}
+        </div>
+        <br>
+            <a style="color:black">Email 📧</a>
+            <br>
+			 {{ form_widget(form.emailReclamation)}} 
+             <div style="color:red">
+			 {{ form_errors(form.emailReclamation)}} 
+             </div>
+             <br>
+             
+			<a style="color:black">Description Reclamation 📝</a>
+            <br>
+			 {{ form_widget(form.desriptionReclamation)}} 
+             <div style="color:red">
+			 {{ form_errors(form.desriptionReclamation)}} 
+             </div>
+             <br>			 
+    <button class="btn btn-success" >{{ button_label|default('Add Reclamation') }}</button>
+    
+{{ form_end(form) }}

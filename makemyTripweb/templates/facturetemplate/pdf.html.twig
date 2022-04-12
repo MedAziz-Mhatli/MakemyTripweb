@@ -1,0 +1,72 @@
+
+{% block body %}
+
+
+<h1 style="text-align: center"> Liste des Factures </h1>
+<br>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 2px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #4c7aaf;
+            color: yellow;
+        }
+    </style>
+</head>
+
+
+
+<table border ="1" id="customers" width="60%" height="120" >
+    <tr>
+
+        <th scope="row">Id Facture</th>
+        <th scope="row">Date Facture</th>
+        <th scope="row">Remise Facture</th>
+        <th scope="row">Total Facture</th>
+        <th scope="row">Type Facture</th>
+        <th scope="row">ID Client</th>
+
+
+
+    </tr>
+    <tbody id="all">
+    {% for h in Facture %}
+        <tr>
+            <td>{{ h.idFacture }}</td>
+            <td>{{ h.dateFacture ? h.dateFacture|date('Y-m-d') : '' }}</td>
+             <td>{{ h.remiseFacture }}</td>
+             <td>{{ h.totalFacture }}</td>
+             <td>{{ h.typeFature }}</td>
+             <td>{{ h.idClient }}</td>
+
+        </tr>
+
+    {%endfor%}
+
+
+
+
+    {% endblock %}
+

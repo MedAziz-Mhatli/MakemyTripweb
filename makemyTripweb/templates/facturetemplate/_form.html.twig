@@ -1,0 +1,33 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+ <div class="form-group">
+            <a style="color:black">Date 📅</a>
+            <br>
+			 {{ form_widget(form.dateFacture)}} 
+             <div style="color:red">
+			 {{ form_errors(form.dateFacture)}} 
+             </div>
+             <br>
+
+			<a style="color:black">Remise 🔖</a>
+            <br>
+			 {{ form_widget(form.remiseFacture)}} 
+             <div style="color:red">
+			 {{ form_errors(form.remiseFacture)}} 
+             </div>
+             <br>	
+             			<a style="color:black">Total 💰</a>
+            <br>
+			 {{ form_widget(form.totalFacture)}} 
+             <div style="color:red">
+			 {{ form_errors(form.totalFacture)}} 
+             </div>
+             <br>				<a style="color:black">Type ⌨️</a>
+            <br>
+			 {{ form_widget(form.typeFature)}} 
+             <div style="color:red">
+			 {{ form_errors(form.typeFature)}} 
+             </div>
+             <br>
+
+    <button class="btn btn-success" >{{ button_label|default('Add Facture') }}</button>   
+{{ form_end(form) }}
