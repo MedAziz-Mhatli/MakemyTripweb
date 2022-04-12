@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Make My Trip {% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="EndGam Gaming Magazine Template">
+    <meta name="keywords" content="endGam,gGaming, magazine, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="{{ asset('img/infernalLogo.ico') }}" rel="shortcut icon"/>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front/css/font-awesome.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset ('front/css/slicknav.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset ('front/css/owl.carousel.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset ('front/css/magnific-popup.css') }}"/>
+    <link rel="stylesheet" href="{{ asset ('front/css/animate.css') }}"/>
+
+    <!-- Main Stylesheets -->
+    <link rel="stylesheet" href="{{ asset ('front/css/style.css ') }}"/>
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<!-- Page Preloder -->
+
+
+
+
+<!-- Header section -->
+<header class="header-section">
+
+        <div class="header-bar-warp d-flex">
+            <!-- site logo -->
+            <a href="{{ asset('/home') }}" class="site-logo ">
+                <img src="{{ asset ('/img/infernalLogo.png') }}" alt="">
+            </a>
+
+            <nav class="top-nav-area navbar-dark w-100">
+
+                <div class="user-panel">
+                    <a href="">Login</a> / <a href="">Register</a>
+                </div>
+                <!-- Menu -->
+                <ul class="main-menu primary-menu">
+                    <li><a href="{{ asset('/home') }}">Home</a></li>
+                    <li><a href="{{ asset('/read') }}">Games</a>
+
+                    </li>
+                    <li><a href="{{ asset('/readfront') }}">Hotels</a></li>
+                    <li><a href="{{ asset('/blogs') }}">Blogs</a></li>
+                    <li><a href="contact.html">More</a>
+                        <ul class="sub-menu">
+                            <li><a href="game-single.html">About Us</a></li>
+                            <li><a href="game-single.html">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+</header>
+<!-- Header section end -->
+
+{% block body %}
+{% endblock %}
+
+<!-- Newsletter section -->
+
+<!-- Newsletter section end -->
+
+<!-- Footer section -->
+
+    <div class="container">
+
+        <div class="footer-social d-flex justify-content-center">
+            <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+            <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+            <a target="_blank" href="{{ asset ('https://www.instagram.com/infernalgames/')}}"><i class="fa fa-instagram"></i></a>
+            <a target="_blank" href="#"><i class="fa fa-twitch"></i></a>
+        </div>
+        <div class="copyright"><a href="">Colorlib</a> 2018 @ All rights reserved</div>
+    </div>
+
+<!-- Footer section end -->
+
+
+<!--====== Javascripts & Jquery ======-->
+<script src="{{ asset ('front/js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset ('front/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset ('front/js/jquery.slicknav.min.js') }}"></script>
+<script src="{{ asset ('front/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset ('front/js/jquery.sticky-sidebar.min.js') }}"></script>
+<script src="{{ asset ('front/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset ('front/js/main.js') }}"></script>
+
+</body>
+</html>
