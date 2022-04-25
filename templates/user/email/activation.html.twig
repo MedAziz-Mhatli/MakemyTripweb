@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="eng">
+<head>
+    <meta charset="utf-8">
+    <title>Activation de votre compte</title>
+</head>
+
+<body>
+        <p>Vous avez cré un compte sur notre site "make My Trip", veuillez cliquer sur le lien ci-dessous pour l'activer !</p>
+        <a href="{{ absolute_url(path('user_activate', {'token': token})) }}">Activer</a>
+        </body>
+</html>

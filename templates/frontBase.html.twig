@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title> {% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="EndGam Gaming Magazine Template">
+    <meta name="keywords" content="endGam,gGaming, magazine, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="{{ asset('img/infernalLogo.ico') }}" rel="shortcut icon"/>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front/css/font-awesome.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset ('front/css/slicknav.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset ('front/css/owl.carousel.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset ('front/css/magnific-popup.css') }}"/>
+    <link rel="stylesheet" href="{{ asset ('front/css/animate.css') }}"/>
+
+    <!-- Main Stylesheets -->
+    <link rel="stylesheet" href="{{ asset ('front/css/style.css ') }}"/>
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<!-- Page Preloder -->
+
+<div id="preloder">
+    <img src="{{ asset ('/img/infernalLogo.png') }}" alt="" class="loader" style="width: 90px; height: 90px">
+</div>
+
+
+<!-- Header section -->
+<header class="header-section">
+    <div class="header-warp">
+        <div class="header-social d-flex justify-content-end">
+        </div>
+        <div class="header-bar-warp d-flex">
+            <!-- site logo -->
+            <a href="{{ asset('/home') }}" class="site-logo ">
+                <img src="{{ asset ('/img/infernalLogo.png') }}" alt="">
+            </a>
+
+            <nav class="top-nav-area navbar-dark w-300">
+
+                <div class="user-panel">
+
+                </div>
+                <!-- Menu -->
+                <ul class="main-menu primary-menu">
+                    <li><a href="{{ asset('/home') }}">Home</a></li>
+                    <li><a href="#">Hôtels</a></li>
+                    <li><a href="#">Vols</a></li>
+                    <li><a href="#">Véhicules</a></li>
+                    <li><a href="{{ asset('/listDQl') }}">Offres</a></li>
+                    <li><a href="{{ asset('/listDQlU') }}">Clients</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- Header section end -->
+
+<section class="newsletter-section">
+    <div class="container">
+        <h2></h2>
+        {% block body %}
+        {% endblock %}
+    </div>
+</section>
+<!-- Newsletter section -->
+<section class="newsletter-section">
+
+</section>
+<!-- Newsletter section end -->
+
+<!-- Footer section -->
+<footer class="footer-section">
+    <div class="container">
+
+        <div class="footer-right-pic">
+
+        </div>
+        <a href="#" class="footer-logo">
+
+        </a>
+
+        <div class="footer-social d-flex justify-content-center">
+            <p>Follow make My Trip :</p>
+            <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+            <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+            <a target="_blank" href="{{ asset ('https://www.instagram.com/infernalgames/')}}"><i class="fa fa-instagram"></i></a>
+            <a target="_blank" href="#"><i class="fa fa-twitch"></i></a>
+        </div>
+        <div class="copyright"><a href="">make My TRip</a> 2022 @ All rights reserved</div>
+    </div>
+</footer>
+<!-- Footer section end -->
+
+
+<!--====== Javascripts & Jquery ======-->
+<script src="{{ asset ('front/js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset ('front/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset ('front/js/jquery.slicknav.min.js') }}"></script>
+<script src="{{ asset ('front/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset ('front/js/jquery.sticky-sidebar.min.js') }}"></script>
+<script src="{{ asset ('front/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset ('front/js/main.js') }}"></script>
+
+</body>
+</html>

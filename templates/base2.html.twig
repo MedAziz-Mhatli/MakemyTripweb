@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Make my Trip</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+        <!-- Favicons -->
+        <link href="img2/favicon.png" rel="icon">
+        <link href="img2/apple-touch-icon.png" rel="apple-touch-icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Libraries CSS Files -->
+        <link href="libraries2/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="libraries2/icofont/icofont.min.css" rel="stylesheet">
+        <link href="libraries2/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="libraries2/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="libraries2/venobox/venobox.css" rel="stylesheet">
+        <link href="libraries2/aos/aos.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="css2/style.css" rel="stylesheet">
+    {% endblock %}
+
+    {% block javascripts %}
+        <!-- Libraries JS Files -->
+        <script src="libraries2/jquery/jquery.min.js"></script>
+        <script src="libraries2/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="libraries2/jquery.easing/jquery.easing.min.js"></script>
+        <script src="libraries2/php-email-form/validate.js"></script>
+        <script src="libraries2/waypoints/jquery.waypoints.min.js"></script>
+        <script src="libraries2/counterup/counterup.min.js"></script>
+        <script src="libraries2/owl.carousel/owl.carousel.min.js"></script>
+        <script src="libraries2/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="libraries2/venobox/venobox.min.js"></script>
+        <script src="libraries2/aos/aos.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="js2/main.js"></script>
+    {% endblock %}
+</head>
+<body>
+{%  block header  %}
+    <header id="header" class="fixed-top">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+
+            <h1 class="logo"><a href="index.html">Make my Trip</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            
+
+                <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+                    <a class="navbar-brand" href="{{ path('homepage') }}">{{ 'make My Trip'|trans }}</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        {% block nav %}
+                            <ul class="navbar-nav">
+
+                            </ul>
+                            <ul class="navbar-nav ml-auto">
+                                {% if is_granted('ROLE_USER') %}
+                                    <li class="nav-item"><a class="nav-link" href="{{ path('user_edit') }}">{{ app.user.email }}</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link"
+                                                            href="{{ path('security_logout') }}">{{ 'Déconnexion'|trans }}</a></li>
+                                {% else %}
+                                    {#<li><a href="{{ path('user_register') }}">{{ 'user.sign-up'|trans }}</a></li>#}
+                                    <li class="nav-item"><a class="nav-link"
+                                                            href="{{ path('security_login') }}">{{ 'Connexion'|trans }}</a></li>
+                                {% endif %}
+                            </ul>
+                        {% endblock %}
+                    </div>
+                </nav>
+
+
+
+        </div>
+
+    </header>
+{% endblock %}
+{%  block content  %}{% endblock %}
+{%  block footer  %}
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Make my Trip</span></strong>. Tous les droits sont réservés
+            </div>
+            <div class="credits">
+                2022/2023
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+</body>
+</html>

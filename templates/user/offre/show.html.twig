@@ -1,0 +1,28 @@
+{% extends 'frontbaseC.html.twig' %}
+
+{% block title %}Détails{% endblock %}
+
+{% block body %}
+    <h3>Détails</h3>
+    <div>
+        <br>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Déscription</th>
+                <td>{{ offre.description }}</td>
+            </tr>
+            <tr>
+                <th>Tarif</th>
+                <td>{{ offre.tarif }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </br>
+
+    <a href="{{ path('listDQLC') }}"> Retourner à la liste </a>
+
+
+{% endblock %}
+

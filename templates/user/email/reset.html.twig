@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="eng">
+<head>
+    <meta charset="utf-8">
+    <title>Mot de passe oublié !</title>
+</head>
+<h1>Récupérer mot de passe </h1>
+<body>
+<p> veuillez cliquer sur le lien ci-dessous pour récupérer votre mot de passe  </p>
+<a href="{{ absolute_url(path('user_reset_password', {'token': token})) }}">Récupérer</a>
+</body>
+</html>

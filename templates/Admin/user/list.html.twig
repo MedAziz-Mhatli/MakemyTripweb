@@ -1,0 +1,37 @@
+{% extends 'frontBase.html.twig' %}
+{% block title %}clients{% endblock %}
+{% block body %}
+    <h3>Nos clients</h3>
+<div>
+    <br>
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+
+                        <a href="{{ path('updateUser',{'id':user.id}) }}">Modifier</a>
+                        <a href="{{ path('deleteUser',{'id':user.id}) }}">Supprimer</a></td>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6"></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
