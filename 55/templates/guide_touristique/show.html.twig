@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GuideTouristique{% endblock %}
+
+{% block body %}
+    <h1>GuideTouristique</h1>
+
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdGuide</th>
+                <td>{{ guide_touristique.idGuide }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ guide_touristique.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ guide_touristique.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ guide_touristique.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ guide_touristique.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ guide_touristique.email }}</td>
+            </tr>
+            <tr>
+                <th>Diplome</th>
+                <td>{{ guide_touristique.diplome }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <div class="single-property-grid">
+        <h4>Estate Location</h4>
+        <div class="property-map">
+            <div id="map" style="height: 400px;width: 100%">  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d198059.49240377638!2d-84.68048827338674!3d39.13652252762691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1615660592820!5m2!1sen!2sbd"></iframe></div>
+        </div>
+    </div>
+
+    <a href="{{ path('app_guide_touristique_index') }}">back to list</a>
+
+    <a href="{{ path('app_guide_touristique_edit', {'idGuide': guide_touristique.idGuide}) }}">edit</a>
+
+    {{ include('guide_touristique/_delete_form.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+        {{ parent() }}
+
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1M9BTlyXVlMZ4Hqojzm16RJu1Bm9VEIc&callback=initMap&libraries=places&v=weekly"
+        async
+></script>
+<script>
+    //https://developers.google.com/maps/documentation/javascript/examples/place-search
+    let map;
+    let service;
+    let infowindow;
+
+    function initMap() {
+        const tunis = new google.maps.LatLng(46.232192999999995, 2.209666999999996);
+
+        infowindow = new google.maps.InfoWindow();
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: tunis,
+            zoom: 12,
+        });
+
+        const request = {
+            query: "{{ guide_touristique.getAdresse() }}",
+            fields: ["name", "geometry"], // name : adresse w geo : lat w long ...
+        };
+
+        service = new google.maps.places.PlacesService(map);
+        service.findPlaceFromQuery(request, (results, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+                for (let i = 0; i < results.length; i++) {
+                    createMarker(results[i]);
+                }
+
+                map.setCenter(results[0].geometry.location);
+            }
+        });
+        const transitLayer = new google.maps.TransitLayer();
+
+        transitLayer.setMap(map);
+    }
+
+    function createMarker(place) {
+        if (!place.geometry || !place.geometry.location) return;
+
+        const marker = new google.maps.Marker({
+            map,
+            position: place.geometry.location,
+            zoom: 18,  // google map develloper
+        });
+
+        google.maps.event.addListener(marker, "click", () => {
+            infowindow.setContent(place.name || "");
+            infowindow.open(map);
+        });
+    }
+</script>
+{% endblock %}

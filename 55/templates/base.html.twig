@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ asset('back/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('back/vendors/jvectormap/jquery-jvectormap.css') }}">
+    <link rel="stylesheet" href="{{ asset('back/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('back/vendors/owl-carousel-2/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('back/vendors/owl-carousel-2/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+
+    <!-- CSS only -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{ asset('back/css/style.css') }}">
+    <!-- End layout styles -->
+    <link href="{{ asset('img/infernalLogo.ico') }}" rel="shortcut icon"/>
+
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet'>
+</head>
+<body>
+<div class="container-scroller">
+
+    <!-- Sidebar -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+            <a class="sidebar-brand brand-logo" ><img src="{{ asset('img/infernalLogo.png') }}" alt="logo" /></a>
+            <a class="sidebar-brand brand-logo-mini" ><img src="{{ asset('back/images/logo-mini.svg') }}" alt="logo" /></a>
+        </div>
+        <ul class="nav">
+
+            <li class="nav-item nav-category">
+                <span class="nav-link">Navigation</span>
+            </li>
+
+            <li class="nav-item menu-items">
+                <a class="nav-link" >
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+                    <span class="menu-title">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" >
+              <span class="menu-icon">
+                <i class="mdi mdi-account"></i>
+              </span>
+                    <span class="menu-title">Guide touristique</span>
+
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" >
+              <span class="menu-icon">
+                <i class="mdi mdi-gamepad-variant"></i>
+              </span>
+                    <span class="menu-title">reservation guide</span>
+
+                </a>
+            </li>
+
+
+
+
+
+        </ul>
+    </nav>
+
+    <div class="container-fluid page-body-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+            <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo-mini" ><img src="{{ asset('back/images/logo-mini.svg') }}" alt="logo" /></a>
+            </div>
+
+            <br> <br> <br>
+        </nav>
+        <script src="//code.jquery.com/jquery.js"></script>
+
+
+        <br> <br> <br> <br>
+        {% block body %}
+
+
+
+
+        {% endblock %}
+    </div>
+</div>
+
+<!-- content-wrapper ends -->
+<!-- partial:../../partials/_footer.html -->
+<footer class="footer">
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+    </div>
+</footer>
+<!-- partial -->
+
+<!-- container-scroller -->
+<!-- plugins:js -->
+<script src="{{ asset('back/vendors/js/vendor.bundle.base.js') }}"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="{{ asset('back/vendors/chart.js/Chart.min.js') }}"></script>
+<script src="{{ asset('back/vendors/progressbar.js/progressbar.min.js') }}"></script>
+<script src="{{ asset('back/vendors/jvectormap/jquery-jvectormap.min.js') }}"></script>
+<script src="{{ asset('back/vendors/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+<script src="{{ asset('back/vendors/owl-carousel-2/owl.carousel.min.js') }}"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="{{ asset('back/js/off-canvas.js') }}"></script>
+<script src="{{ asset('back/js/hoverable-collapse.js') }}"></script>
+<script src="{{ asset('back/js/misc.js') }}"></script>
+<script src="{{ asset('back/js/settings.js') }}"></script>
+<script src="{{ asset('back/js/todolist.js') }}"></script>
+<!-- JavaScript Bundle with Popper -->
+<!-- endinject -->
+<!-- Custom js for this page -->
+<script src="{{ asset('back/js/dashboard.js') }}"></script>
+<!-- End custom js for this page -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>
+

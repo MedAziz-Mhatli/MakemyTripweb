@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ReservationGuide{% endblock %}
+
+{% block body %}
+    <h1>ReservationGuide</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdResguide</th>
+                <td>{{ reservation_guide.idResguide }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_reservation_guide_index') }}">back to list</a>
+
+    <a href="{{ path('app_reservation_guide_edit', {'idResguide': reservation_guide.idResguide}) }}">edit</a>
+
+    {{ include('reservation_guide/_delete_form.html.twig') }}
+{% endblock %}
