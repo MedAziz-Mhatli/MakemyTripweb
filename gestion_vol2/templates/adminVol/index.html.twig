@@ -1,0 +1,81 @@
+
+  {% extends "backBase.html.twig" %}
+
+{% block body %}
+
+    <div class="main-panel">
+        <div class="content-wrapper">
+                    <ul class="navbar-nav w-100">
+                <li class="nav-item w-100">
+            
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><input class="btn btn-success" type="submit"  value="search"></li>
+                        </ol>
+                    </form>
+                </li>
+            </ul>
+            <div class="page-header">
+                <h3 class="page-title"> les vols </h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="btn btn-success" href="{{ asset('/admin/Vol/new') }}">+ Add  vol</a></li>
+                    </ol>
+                </nav>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="btn btn-danger" href="{{ asset('/admin/Vol/mypdf') }}">+ Download PDF</a></li>
+                    </ol>
+                </nav>
+            </div>
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped ">
+                                    <thead>
+                                    <tr>
+                                        <th> Picture </th>
+                                        <th> ID </th>
+                                        <th> depart vol </th>
+                                        <th> destiny </th>
+                                        <th> Date Depart Vol  </th>
+                                        <th> Date Retour Vol </th>
+                                        <th> Nb Escales Vol </th>
+                                        <th> prix </th>
+                                      
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                 {% for Vol in Vols %}
+                                    <tr onclick="">
+                                        <td class="py-1">
+                                        
+                                            <img src="{{ asset('back/images/faces-clipart/pic-1.png') }}" alt="image" />
+                                        </td>
+                                        <th> {{Vol.getIdVol}} </th>
+                                        <td> {{Vol.getDepartVol}} </td>
+                                        <td> {{Vol.getDestinationVol}} </td>
+                                        <td> {{Vol.getDateDepartVol|date('d-m-Y')}} </td>    
+                                        <td> {{Vol.getDateRetourVol|date('d-m-Y')}} </td>
+                                        <td> {{Vol.getNbEscalesVol}} </td>
+                                        <td> {{Vol.getPrixVol}} </td>
+
+                                                          <td> <a class="" href="{{ path('admin_Vol_edit',{'id': Vol.getIdVol}) }}">
+                                                <i class="mdi mdi-pencil"></i>
+                                            </a></td>
+
+                                            <td> <a class="" href="{{ path('admin_Vol_delete',{'id':Vol.getIdVol})}}">
+                                                <i class="mdi mdi-delete-forever"></i>
+                                            </a></td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+{% endblock %}
