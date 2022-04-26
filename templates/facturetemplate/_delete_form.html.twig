@@ -1,0 +1,42 @@
+
+<form method="post" action="{{ path('facturetemplate_delete', {'idFacture': facture.idFacture}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ facture.idFacture) }}">
+
+    <button class="a" >Delete🗑️</button>
+
+
+        <style>
+
+            .a  {
+                background-color: #cf245f;
+                background-image: linear-gradient(to bottom right, #fcd34d, #ef4444, #ec4899);
+                border: 0;
+                border-radius: .25rem;
+                box-sizing: border-box;
+                color: #fff;
+                cursor: pointer;
+                font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+                font-size: 1.125rem; /* 18px */
+                font-weight: 600;
+                line-height: 1.75rem; /* 28px */
+                padding: 1rem 1.25rem;
+                text-align: center;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+            }
+
+            .button-76:hover {
+                box-shadow: none;
+            }
+
+            @media (min-width: 1024px) {
+                .button-76 {
+                    font-size: 1.5rem; /* 24px */
+                    padding: 1rem 1.5rem;
+                    line-height: 2rem; /* 32px */
+                }
+            }
+
+        </style>
+</form>

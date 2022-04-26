@@ -1,0 +1,27 @@
+{% extends 'backBase.html.twig' %}
+{% block body %}
+<div class="section-title">
+    <h1>Create new Facture</h1>
+
+    {{ include('facturetemplate/_form.html.twig') }}
+    {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+
+    <a href="{{ path('facturetemplate_index') }}">back to list</a>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

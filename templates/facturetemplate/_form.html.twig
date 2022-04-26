@@ -1,0 +1,68 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+ <div class="form-group">
+     <br><br><br>
+            <a style="color:white">Date 📅</a>
+            <br>
+			 {{ form_widget(form.dateFacture)}} 
+             <div style="color:white">
+			 {{ form_errors(form.dateFacture)}} 
+             </div>
+             <br>
+
+			<a style="color:white">Remise 🔖</a>
+            <br>
+			 {{ form_widget(form.remiseFacture)}} 
+             <div style="color:white">
+			 {{ form_errors(form.remiseFacture)}} 
+             </div>
+             <br>	
+             			<a style="color:white">Total 💰</a>
+            <br>
+			 {{ form_widget(form.totalFacture)}} 
+             <div style="color:white">
+			 {{ form_errors(form.totalFacture)}} 
+             </div>
+             <br>				<a style="color:white">Type ⌨️</a>
+            <br>
+			 {{ form_widget(form.typeFature)}} 
+             <div style="color:white">
+			 {{ form_errors(form.typeFature)}} 
+             </div>
+             <br>
+
+
+    <button class="btn btn-success" >{{ button_label|default('Add Facture') }}</button>
+     <style>
+
+         .a {
+             background-color: #cf245f;
+             background-image: linear-gradient(to bottom right, #fcd34d, #ef4444, #ec4899);
+             border: 0;
+             border-radius: .25rem;
+             box-sizing: border-box;
+             color: #fff;
+             cursor: pointer;
+             font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+             font-size: 1.125rem; /* 18px */
+             font-weight: 600;
+             line-height: 1.75rem; /* 28px */
+             padding: 1rem 1.25rem;
+             text-align: center;
+             user-select: none;
+             -webkit-user-select: none;
+             touch-action: manipulation;
+         }
+
+         .button-76:hover {
+             box-shadow: none;
+         }
+
+         @media (min-width: 1024px) {
+             .button-76 {
+                 font-size: 1.5rem; /* 24px */
+                 padding: 1rem 1.5rem;
+                 line-height: 2rem; /* 32px */
+             }
+         }
+
+         {{ form_end(form) }}

@@ -1,0 +1,107 @@
+{% extends 'backBase.html.twig' %}
+
+
+{% block body %}
+    <h1>Facture</h1>
+    <br>
+    <br>
+    <br>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+    <table class="table">
+        <br>
+        <br>
+
+        <tbody>
+           <!-- <tr>
+                <th>IdFacture</th>
+                <td>{{ facture.idFacture }}</td>
+            </tr>-->
+           <tr>
+               <th></th>
+               <td></td>
+           </tr>
+           <tr>
+                <th>DateFacture</th>
+                <td>{{ facture.dateFacture ? facture.dateFacture|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>RemiseFacture</th>
+                <td>{{ facture.remiseFacture }}</td>
+            </tr>
+            <tr>
+                <th>TotalFacture</th>
+                <td>{{ facture.totalFacture }}</td>
+            </tr>
+            <tr>
+                <th>TypeFature</th>
+                <td>{{ facture.typeFature }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+            <br> <br>
+                <div class="example-wrapper">
+                    <style>
+
+                        .a ,.b {
+                            background-color: #cf245f;
+                            background-image: linear-gradient(to bottom right, #fcd34d, #ef4444, #ec4899);
+                            border: 0;
+                            border-radius: .25rem;
+                            box-sizing: border-box;
+                            color: #fff;
+                            cursor: pointer;
+                            font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+                            font-size: 1.125rem; /* 18px */
+                            font-weight: 600;
+                            line-height: 1.75rem; /* 28px */
+                            padding: 1rem 1.25rem;
+                            text-align: center;
+                            user-select: none;
+                            -webkit-user-select: none;
+                            touch-action: manipulation;
+                        }
+
+                        .button-76:hover {
+                            box-shadow: none;
+                        }
+
+                        @media (min-width: 1024px) {
+                            .button-76 {
+                                font-size: 1.5rem; /* 24px */
+                                padding: 1rem 1.5rem;
+                                line-height: 2rem; /* 32px */
+                            }
+                        }
+
+                    </style>
+
+    <a class = "a"  href="{{ path('facturetemplate_edit', {'idFacture': facture.idFacture}) }}">Edit ✏️</a>
+                    <br>  <br>
+
+    {{ include('facturetemplate/_delete_form.html.twig') }}
+                    <br>  <br>
+     <a  class = "b" href="{{ path('facturetemplate_index') }}">back to list</a>  <br> <br>
+                </div>
+            </div> </div> </div> </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            

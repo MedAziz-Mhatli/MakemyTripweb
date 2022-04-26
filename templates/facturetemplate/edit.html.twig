@@ -1,0 +1,31 @@
+{% extends 'backBase.html.twig' %}
+
+
+{% block body %}
+    <h1>Edit Facture</h1>
+
+    {{ include('facturetemplate/_form.html.twig', {'button_label': 'Update'}) }}
+
+    {{ include('facturetemplate/_delete_form.html.twig') }}
+
+        <a href="{{ path('facturetemplate_index') }}">back to list</a>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
