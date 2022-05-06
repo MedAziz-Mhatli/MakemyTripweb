@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\OffreRepository;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
+
 class OffreController extends AbstractController
 {
     /**
@@ -30,7 +31,7 @@ class OffreController extends AbstractController
     public function listOffre()
     {
         $offres = $this->getDoctrine()->getRepository(Offre::class)->findAll();
-        return $this->render('Admin/offre/list.html.twig', array("offres" => $offres));
+        return $this->render('Admin/offre/list.html.twig',array("offres" => $offres));
     }
 
     /**
@@ -48,14 +49,16 @@ class OffreController extends AbstractController
     /**
      * @Route("/show/{id}", name="show")
      */
-    public function showoffre($id)
+    public function showoffre($id ,NormalizerInterface  $Normalizer)
     {
         $offre = $this->getDoctrine()->getRepository(Offre::class)->find($id);
         return $this->render('Admin/offre/show.html.twig', array("offre" => $offre));
+
     }
 
     /**
      * @Route("/addO", name="addOffre")
+
      */
     public function addOffre(Request $request)
     {
@@ -69,6 +72,8 @@ class OffreController extends AbstractController
             $em->flush();
             return $this->redirectToRoute('listDQL');
         }
+
+
         return $this->render("Admin/offre/add.html.twig", array('form' => $form->createView()));
     }
 

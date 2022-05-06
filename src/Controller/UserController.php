@@ -283,13 +283,11 @@ class UserController extends AbstractController
             $user = $form->getData();
             $user->setPassword($encoder->encodePassword($user, $user->getPassword()));
             $user->setToken(null);
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
 
             $this->addFlash('success', 'Votre mot de passe est  modifié avec succès !');
-
             // automatic login
             return $authenticatorHandler->authenticateUserAndHandleSuccess(
                 $user,

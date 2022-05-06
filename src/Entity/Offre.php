@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=OffreRepository::class)
  * @UniqueEntity("id")
@@ -16,8 +16,8 @@ class Offre
 {
     /**
      * @var int
-     *
      * @ORM\Column(name="id", type="integer", nullable=false)
+     * @Groups("post:read")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -27,6 +27,7 @@ class Offre
      * @var string
      *
      * @ORM\Column(name="description", type="text", length=65535, nullable=false)
+     * @Groups("post:read")
      * @Assert\NotBlank(message="Le Champ Description est obligatoire")
      * @Assert\Length(
      *     min=10,
@@ -39,6 +40,7 @@ class Offre
      * @var float
      *
      * @ORM\Column(name="tarif", type="float", precision=10, scale=0, nullable=false)
+     * @Groups("post:read")
      * @Assert\NotBlank(message="Le Champ Tarif est obligatoire")
      * @Assert\Positive(message="Merci de renseigner une valeur positive !")
      */

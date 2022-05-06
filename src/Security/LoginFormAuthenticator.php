@@ -12,6 +12,7 @@ namespace App\Security;
 use App\Entity\User;
 
 use App\Form\Security\LoginType;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
