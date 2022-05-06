@@ -20,6 +20,8 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Endroid\QrCode\Builder\BuilderInterface;
+use Endroid\QrCodeBundle\Response\QrCodeResponse;
 
 /**
  * @Route("/facturetemplate")
@@ -27,7 +29,13 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class FacturetemplateController extends AbstractController
 {
 
-
+    public function __construct(BuilderInterface $customQrCodeBuilder)
+    {
+        $result = $customQrCodeBuilder
+            ->size(400)
+            ->margin(20)
+            ->build();
+    }
 
     /**
      * @Route("/", name="facturetemplate_index", methods={"GET"})
@@ -73,6 +81,7 @@ class FacturetemplateController extends AbstractController
 
             }
 
+            //$response = new QrCodeResponse($result);
 
         }
 

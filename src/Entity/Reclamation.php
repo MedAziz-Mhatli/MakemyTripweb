@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * Reclamation
  *
  * @ORM\Table(name="reclamation", indexes={@ORM\Index(name="reclamation_idclient", columns={"id_client"})})
- *@ORM\Entity(repositoryClass=App\Repository\ReclamationRepository::class)
+ * @ORM\Entity(repositoryClass=App\Repository\ReclamationRepository::class)
  */
 class Reclamation
 {
@@ -21,7 +21,7 @@ class Reclamation
      * @ORM\Column(name="id_reclamation", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
-     *@Groups("reclamation")
+     * @Groups("reclamation")
      * @Groups("posts:read")
      */
     private $idReclamation;
@@ -30,7 +30,7 @@ class Reclamation
      * @var \DateTime
      *
      * @ORM\Column(name="date_reclamation", type="date", nullable=false)
-     *@Groups("reclamation")
+     * @Groups("reclamation")
      * @Groups("posts:read")
      */
     private $dateReclamation;
@@ -44,7 +44,7 @@ class Reclamation
      *     message = "The email '{{ value }}' is not a valid email."
      * )
      *
-     *@Groups("reclamation")
+     * @Groups("reclamation")
      * @Groups("posts:read")
      */
 
@@ -56,7 +56,7 @@ class Reclamation
      *
      * @ORM\Column(name="desription_reclamation", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="Desription Reclamation est Vide !")
-     *@Groups("reclamation")
+     * @Groups("reclamation")
      * @Groups("posts:read")
      */
     private $desriptionReclamation;
@@ -65,7 +65,7 @@ class Reclamation
      * @var string
      *
      * @ORM\Column(name="etat_reclamation", type="string", length=255, nullable=false)
-     *@Groups("reclamation")
+     * @Groups("reclamation")
      * @Groups("posts:read")
      */
     private $etatReclamation;
@@ -83,7 +83,7 @@ class Reclamation
      *     pattern="/^[a-zA-Z ]*$/",
      *     message="The fullname should only have letters"
      * )
-     *@Groups("reclamation")
+     * @Groups("reclamation")
      * @Groups("posts:read")
      */
 
@@ -97,7 +97,7 @@ class Reclamation
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_client", referencedColumnName="id_client")
      * })
-     *@Groups("reclamation")
+     * @Groups("reclamation")
      * @Groups("posts:read")
      */
     private $Client;
@@ -111,7 +111,7 @@ class Reclamation
     /**
      * @return int
      */
-    public function getIdReclamation(): int
+    public function getIdReclamation(): ?int
     {
         return $this->idReclamation;
     }
@@ -146,9 +146,7 @@ class Reclamation
         return $this->emailReclamation;
     }
 
-    /**
-     * @param string $emailReclamation
-     */
+
     public function setEmailReclamation(string $emailReclamation): self
     {
         $this->emailReclamation = $emailReclamation;

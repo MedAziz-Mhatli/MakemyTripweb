@@ -82,7 +82,7 @@ class Facture
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="client_id", referencedColumnName="id_client")
      * })
-     *@Groups("facture")
+     * @Groups("facture")
      * @Groups("posts:read")
      */
     private $Client;
@@ -90,7 +90,7 @@ class Facture
     /**
      * @return int
      */
-    public function getIdFacture(): int
+    public function getIdFacture(): ?int
     {
         return $this->idFacture;
     }
@@ -159,17 +159,7 @@ class Facture
     }
 
 
-    public function getRelation(): ?string
-    {
-        return $this->relation;
-    }
 
-    public function setRelation(string $relation): self
-    {
-        $this->relation = $relation;
-
-        return $this;
-    }
 
     public function getClient(): ?Client
     {

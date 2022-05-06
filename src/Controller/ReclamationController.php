@@ -2,8 +2,12 @@
 
 namespace App\Controller;
 
+use phpDocumentor\Reflection\DocBlock\Serializer;
+use PHPUnit\Util\Json;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 use App\Entity\Facture;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use App\Entity\RatingRec;
 use App\Entity\Reclamation;
 use App\Form\RatingrecType;
@@ -12,6 +16,7 @@ use App\Repository\ReclamationRepository;
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,6 +24,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 //use \Statickidz\GoogleTranslate;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 
@@ -27,6 +33,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class ReclamationController extends AbstractController
 {
+
     /**
      * @Route("/", name="reclamation_index", methods={"GET"})
      */
@@ -58,6 +65,12 @@ class ReclamationController extends AbstractController
         ]);
     }
 
+
+
+
+
+
+
     /**
      * @Route("/new", name="reclamation_new", methods={"GET", "POST"})
      */
@@ -75,8 +88,8 @@ class ReclamationController extends AbstractController
             echo $tr->getLastDetectedSource();
             $reclamation->setDateReclamation(new \DateTime('now'));
             $reclamation->setEtatReclamation(('non traite'));
-            $reclamation->setDesriptionReclamation($this->filterwords($reclamation->getDesriptionReclamation()));
-            $reclamation->setDesriptionReclamation($text);
+            $reclamation->setDesriptionReclamation($this->filterwords($text));
+            //$reclamation->setDesriptionReclamation($text);
             //$reclamation->setNomUser("aziz");
 
             $entityManager->persist($reclamation);
@@ -91,6 +104,9 @@ class ReclamationController extends AbstractController
 
         ]);
     }
+
+
+
     /**
      * @Route("/newR/{id}", name="reclamation_new_rating", methods={"GET", "POST"})
      */
@@ -133,7 +149,7 @@ class ReclamationController extends AbstractController
     }
     function filterwords($text)
     {
-        $filterWords = array('fuck', 'pute', 'bitch');
+        $filterWords = array('fuck', 'pute', 'bitch','hate','haine','putain');
         $filterCount = sizeof($filterWords);
         for ($i = 0; $i < $filterCount; $i++) {
             $text = preg_replace_callback('/\b' . $filterWords[$i] . '\b/i', function ($matches) {
@@ -175,7 +191,6 @@ class ReclamationController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
 
     /**
      * @Route("/{idReclamation}/traite", name="reclamation_traite", methods={"GET", "POST"})
@@ -297,6 +312,8 @@ class ReclamationController extends AbstractController
         // Configure Dompdf according to your needs
         $pdfOptions = new Options();
         $pdfOptions->set('defaultFont', 'Arial');
+        $pdfOptions->setIsRemoteEnabled(true);
+
         // Instantiate Dompdf with our options
         $dompdf = new Dompdf($pdfOptions);
         $repository = $this->getdoctrine()->getrepository(Reclamation::class);
@@ -311,11 +328,29 @@ class ReclamationController extends AbstractController
         $dompdf->setPaper('A4', 'portrait');
         // Render the HTML as PDF
         $dompdf->render();
+
+     //   $writer->save('Reclam' . date('m-d-Y_his') . '.xlsx');
         // Output the generated PDF to Browser (force download)
         $dompdf->stream("reclamationpdf.pdf", [
             "Attachment" => true
         ]);
     }
+
+
+
+
+
+
+
+    public function findAction($idReclamation){
+        $reclamation = $this->getDoctrine()->getManager()->getRepository(Reclamation::class)->find($idReclamation);
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($reclamation);
+        return new JsonResponse($formatted);
+
+    }
+
+
 
 
 
