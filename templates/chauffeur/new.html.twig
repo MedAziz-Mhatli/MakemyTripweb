@@ -1,0 +1,12 @@
+{% extends 'Backbase.html.twig' %}
+
+{% block title %}New Chauffeur{% endblock %}
+
+{% block body %}
+    <div style="margin-top: 200px;">
+    <h1>Create new Chauffeur</h1>
+
+    {{ include('chauffeur/_form.html.twig') }}
+</div>
+    <a href="{{ path('app_chauffeur_index') }}">back to list</a>
+{% endblock %}

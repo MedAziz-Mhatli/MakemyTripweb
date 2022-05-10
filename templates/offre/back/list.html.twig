@@ -1,0 +1,103 @@
+{% extends 'frontBase.html.twig' %}
+{% block title %}Nos offres{% endblock %}
+{% block body %}
+
+    <h3>Nos offres</h3>
+
+    <div>
+        <br>
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Réf</th>
+            <th>Déscription</th>
+            <th>Tarif</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for offre in offres %}
+            <tr>
+                <td>{{ offre.id }}</td>
+                <td>{{ offre.description }}</td>
+                <td>{{ offre.tarif }}</td>
+                <td>
+                    <a href="{{ path('show',{'id':offre.id}) }}">Détails</a>
+                    <a href="{{ path('update',{'id':offre.id}) }}">Modifier</a>
+                    <a href="{{ path('delete',{'id':offre.id}) }}">Supprimer</a></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6"></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <a href="{{ path('addOffre') }}">Nouvelle offre</a>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#search").keyup(function(){
+                /* La variable value va prendre la valeur insérer dans le
+                champ de texte
+                afin d’effectuer la recherche */
+                var value = $(this).val();
+                console.log("value : ")
+                /* Ajax est lancé lors du remplissage du champ texte dont
+                l’id est
+                « search » pour faire la recherche */
+                $.ajax({
+                    /* l’url est une chaine de caractères contenant
+                    l’adresse où la requête est
+                    6
+                    envoyée */
+                    url : "{{ path('searchOffre') }}",
+                    /* La méthode utilisée pour transférer les données est
+                    GET */
+                    type : 'GET',
+                    /*Ici search value va prendre la chaine entrée par un
+                    utilisateur dans la
+                    zone de recherche et sera placée après l’url */
+                    data: {
+                        'searchValue' : value
+                    },
+                    /*Cette fonction permet de vider le contenu du tableau
+                    pour recevoir le
+                    nouveau contenu*/
+                    success : function(retour){
+                        if(retour){
+                            $('#t tbody#searchtab').empty();
+                            $.each(JSON.parse(retour), function(i, obj) {
+                                $('#t tbody#all').hide();
+                                $('#t tbody#searchtab').append('<tr><td>
+                                '+obj.id+'</td>
+                                <td> '+obj.description+' </td>
+
+                                <td>'+obj.tarif+ '</td><td><a
+                                href="update/'+obj.id+'">modifier</a>
+                            </br><a
+                                href="deleteOffre/'+obj.id+'">supprimer</a>
+                        </td></tr>');
+                            });
+                        }
+                        else
+                        {
+                            $('#t tbody#all').show();
+                            $('#t tbody#searchtab').empty();
+                            $('#t tbody#searchtab').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+{% endblock %}

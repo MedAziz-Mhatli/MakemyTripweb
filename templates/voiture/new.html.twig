@@ -1,0 +1,13 @@
+{% extends 'Backbase.html.twig' %}
+
+{% block title %}New Voiture{% endblock %}
+
+{% block body %}
+<div style="margin-top: 200px;">
+    <h1>Create new Voiture</h1>
+
+    {{ include('voiture/_form.html.twig') }}
+
+    <a href="{{ path('app_voiture_index') }}">back to list</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ReservationGuide index{% endblock %}
+
+{% block body %}
+    <h1>ReservationGuide index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdResguide</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation_guide in reservation_guides %}
+            <tr>
+                <td>{{ reservation_guide.idResguide }}</td>
+                <td>
+                    <a href="{{ path('app_reservation_guide_show', {'idResguide': reservation_guide.idResguide}) }}">show</a>
+                    <a href="{{ path('app_reservation_guide_edit', {'idResguide': reservation_guide.idResguide}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_reservation_guide_new') }}">Create new</a>
+{% endblock %}

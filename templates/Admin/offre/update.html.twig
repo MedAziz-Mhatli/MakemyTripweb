@@ -1,0 +1,15 @@
+{% extends 'frontBase.html.twig' %}
+
+    {% block title %}Editer offre{% endblock %}
+    {% block body %}
+            <h3>Editer offre</h3>
+            {{ form_start(form1,{'attr': {'novalidate': 'novalidate'}} ) }}
+            {{ form(form1) }}
+        <a href="{{ path('listDQL') }}">Retourner à la liste</a>
+        </div>
+    </section>
+{% endblock %}
+
+
+
+

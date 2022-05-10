@@ -1,0 +1,55 @@
+{% block body %}
+<style>
+    h1{
+        font-family: Arial , Helvetica ;
+        text-align: center;
+
+        color: #005eff;
+    }
+    table {
+        width: auto;
+        text-align: center;
+        align-content: center;
+        table-border-color-dark: #0b2e13;
+        position: center;}
+</style>
+
+    <u><h1>Voiture index</h1></u>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Matricule</th>
+                <th>Nbplace</th>
+                <th>Prix</th>
+                <th>Marque</th>
+                <th>Modele</th>
+                <th>Color</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for voiture in voitures %}
+            <tr>
+                <td>{{ voiture.id }}</td>
+                <td>{{ voiture.matricule }}</td>
+                <td>{{ voiture.nbplace }}</td>
+                <td>{{ voiture.prix }}</td>
+                <td>{{ voiture.marque }}</td>
+                <td>{{ voiture.modele }}</td>
+                <td>{{ voiture.color }}</td>
+                <td>{{ voiture.image }}</td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+{% endblock %}

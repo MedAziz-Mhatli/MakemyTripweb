@@ -6,6 +6,7 @@ use App\Repository\ClientRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 /**
@@ -17,12 +18,14 @@ class Client
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("posts:read")
      */
     private $id_client;
 
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("posts:read")
      */
     private $nom_client;
 
@@ -52,7 +55,7 @@ class Client
     private $mdp_client;
 
     /**
-     * @ORM\OneToMany(targetEntity=Facture::class, mappedBy="clients")
+     * @ORM\OneToMany(targetEntity=Facture::class, mappedBy="Client")
      */
     private $facture;
 

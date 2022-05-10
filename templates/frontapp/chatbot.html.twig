@@ -1,0 +1,488 @@
+
+<style>
+	/* =============================== CHATBOT ============================= */
+.nodeco {
+		background: none;
+		color: inherit;
+		border: none;
+		padding: 0;
+		font: inherit;
+		cursor: pointer;
+		outline: inherit;
+	}
+
+	.nodeco:hover {
+		background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	}
+
+	.nodeco:active {
+		background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	}
+
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 420px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #fdb819; 
+  color: white;
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+} 
+ 
+.containe{
+	width : 400px ; 
+	height : 400px ; 
+	overflow : auto ; 
+	border : 1px solid #E6E4E1 ; 
+}
+
+.bot {
+	background-image: linear-gradient(to bottom right, #FFDB5F,#dc4225); 
+	border-radius : 15px ; 
+	padding : 4px ; 
+	width : 300px ;
+	color : black ;
+	margin : 2px ;
+	border-top-left-radius: 0px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+.botSender {
+	background : #F7E3C3 ;
+	border-radius : 10px ; 
+	padding : 4px 6px 4px 6px ; 
+	border : 1px solid black ; 
+	margin : 2px ; 
+	font-size: 15px; 
+ 	font-family : Mark\ Pro,sans-serif;
+	
+}
+
+.botSender:hover {
+	background : #FFCF84 ;
+	border-radius : 10px ; 
+	padding : 4px 6px 4px 6px ;  
+	border : 1px solid black ; 
+	margin : 2px ; 
+	font-size: 15px; 
+ 	font-family : Mark\ Pro,sans-serif;
+}
+.botText {	
+	margin : 2px ; 
+	fontcolor : black ;
+	font-size: 16px; 
+ 	font-family : Mark\ Pro,sans-serif; 
+}
+
+
+/* ============== CLIENT ================ */
+.client {
+	background-image: linear-gradient(to bottom right, #FDFCE9,#F5F0AF); 
+	border-radius : 15px ; 
+	padding : 4px ; 
+	width : 300px ;
+	color : black ;
+	margin : 8px ; 
+	border-top-right-radius: 0px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	float : right ; 
+
+}
+
+.cancelButton {
+	padding : 0px 8px 0px 8px ;
+	border : 1px solid black ; 
+	background-color : red; 
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	float : right ; 
+	background-image: linear-gradient(to bottom right, #FF7E75,#E9C5C2); 
+}
+
+.cancelButton:hover {
+	padding : 0px 8px 0px 8px ;
+	border : 1px solid black ; 
+	background-color : red; 
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	float : right ; 
+	background-image: linear-gradient(to bottom right, #FF7E75,#E9C5C2); 
+}
+ 
+
+</style>
+
+<button class="open-button" onclick="openForm()">Chat</button>
+
+<div class="chat-popup" id="myForm">
+	<div action="/action_page.php" class="form-container">
+		<button class="nodeco cancelButton" onclick="closeForm()">
+			  -  
+		</button>
+
+		
+		<table style="width :60% ; ">
+			<tr>
+				<td valign="center" align="left"><img style="width : 26px ; height : 40px" src="https://www.pngall.com/wp-content/uploads/10/Ethereum-Logo-PNG-HD-Image.png"></td>
+				<td valign="center">
+					<h4 >Crypto Chatbot</h4>
+				</td>
+				
+			</tr>
+		</table>
+
+
+		<label for="msg">
+			<b> </b>
+		</label>
+		<!--textarea placeholder="Type message.." name="msg" required></textarea-->
+
+		<div class="containe" id="chat">
+
+			<div class="bot">
+				<div class="botText">
+					Hello, how can we help you ?
+				</div>
+				<button class="nodeco botSender" onclick="botReply(this.value)" value="1" id="StoreLocator">Where are we located? </button>
+				<button class="nodeco botSender" onclick="botReply(this.value)" value="2" id="Products">Where can I find products?</button>
+				<button class="nodeco botSender" onclick="botReply(this.value)" value="3" id="EventPublish">How can I publish an event?</button>		
+				<button class="nodeco botSender" onclick="botReply(this.value)" value="4" id="TechNews">Extra Tech News</button>
+			</div>
+ 			
+ 			
+
+
+
+		</div>
+
+		<div style="height : 40px ; ">
+			 
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script>
+	function openForm() {
+		document.getElementById("myForm").style.display = "block";
+	}
+
+	function closeForm() {
+		document.getElementById("myForm").style.display = "none";
+	}
+
+
+
+
+	function botReply(value) {
+		if (value == 1) {
+
+			// ========== client ==========
+			var containe = document.createElement("div");
+			containe.classList.add('client');
+
+			var message = document.createElement("div");
+			message.classList.add('botText');
+
+			var text2 = document.getElementById("StoreLocator").innerHTML ; 
+
+			var text = document.createTextNode(text2);
+			message.appendChild(text);
+
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);	
+
+			var newElem1 = document.createElement("BR");
+			var newElem2 = document.createElement("BR");
+			var newElem3 = document.createElement("BR");
+			element.appendChild(newElem1) ; 
+			element.appendChild(newElem2) ; 
+			element.appendChild(newElem3) ; 
+
+			// ======== bot =================
+
+			var containe = document.createElement("div");
+			containe.classList.add('bot');
+
+			var message = document.createElement("div");
+			message.classList.add('botText'); 
+
+			var text = document.createTextNode("Find us here : ");
+			message.appendChild(text);
+
+			var a = document.createElement('a');
+			var linkText = document.createTextNode("Store Locator");
+			a.appendChild(linkText);
+			//a.title = "my title text";
+			a.href = "https://microsoftedge.microsoft.com/addons/detail/metamask/ejbalbakoplchlghecdalmeeeajnimhm?hl=en-US";
+			a.style="color : white ; " ;  
+			message.appendChild(a);
+
+			containe.appendChild(message);
+
+			var element = document.getElementById("chat");
+			element.appendChild(containe);
+			
+
+
+		} else if (value=="2") {
+			// ========== client ==========
+			var containe = document.createElement("div");
+			containe.classList.add('client');
+
+			var message = document.createElement("div");
+			message.classList.add('botText');
+
+			var text2 = document.getElementById("Products").innerHTML ; 
+
+			var text = document.createTextNode(text2);
+			message.appendChild(text);
+
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);	
+
+			var newElem1 = document.createElement("BR");
+			var newElem2 = document.createElement("BR");
+			var newElem3 = document.createElement("BR");
+			element.appendChild(newElem1) ; 
+			element.appendChild(newElem2) ; 
+			element.appendChild(newElem3) ; 
+
+			// ======== bot =================
+
+			var containe = document.createElement("div");
+			containe.classList.add('bot');
+
+			var message = document.createElement("div");
+			message.classList.add('botText'); 
+
+			var text = document.createTextNode("Check our best products here : ");
+			message.appendChild(text);
+
+			var a = document.createElement('a');
+			var linkText = document.createTextNode("MetaTech Products");
+			a.appendChild(linkText);
+			//a.title = "my title text";
+			a.href = "https://microsoftedge.microsoft.com/addons/detail/metamask/ejbalbakoplchlghecdalmeeeajnimhm?hl=en-US";
+			a.style="color : white ; " ;  
+			message.appendChild(a);
+
+			containe.appendChild(message);
+
+			var element = document.getElementById("chat");
+			element.appendChild(containe);
+			
+ 
+		} else if (value=="3") {
+			// ========== client ==========
+			var containe = document.createElement("div");
+			containe.classList.add('client');
+
+			var message = document.createElement("div");
+			message.classList.add('botText');
+
+			var text2 = document.getElementById("EventPublish").innerHTML ; 
+
+			var text = document.createTextNode(text2);
+			message.appendChild(text);
+
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);	
+
+			var newElem1 = document.createElement("BR");
+			var newElem2 = document.createElement("BR");
+			var newElem3 = document.createElement("BR");
+			element.appendChild(newElem1) ; 
+			element.appendChild(newElem2) ; 
+			element.appendChild(newElem3) ; 
+
+			// ======== bot =================
+
+			var containe = document.createElement("div");
+			containe.classList.add('bot');
+
+			var message = document.createElement("div");
+			message.classList.add('botText'); 
+
+			var text = document.createTextNode("If you are a streamer, an online former or want to hold an online event, make sure to check our Events part ");
+			message.appendChild(text);
+
+			var a = document.createElement('a');
+			var linkText = document.createTextNode("Events");
+			a.appendChild(linkText);
+			//a.title = "my title text";
+			a.href = "https://microsoftedge.microsoft.com/addons/detail/metamask/ejbalbakoplchlghecdalmeeeajnimhm?hl=en-US";
+			a.style="color : white ; " ;  
+			message.appendChild(a);
+
+			containe.appendChild(message);
+
+			var element = document.getElementById("chat");
+			element.appendChild(containe);
+
+
+
+
+		} else if (value=="4") {
+			// ========== client ==========
+			var containe = document.createElement("div");
+			containe.classList.add('client');
+
+			var message = document.createElement("div");
+			message.classList.add('botText');
+
+			var text2 = document.getElementById("TechNews").innerHTML ; 
+
+			var text = document.createTextNode(text2);
+			message.appendChild(text);
+
+			containe.appendChild(message);
+			var element = document.getElementById("chat");
+			element.appendChild(containe);	
+
+			var newElem1 = document.createElement("BR");
+			var newElem2 = document.createElement("BR");
+			var newElem3 = document.createElement("BR");
+			element.appendChild(newElem1) ; 
+			element.appendChild(newElem2) ; 
+			element.appendChild(newElem3) ; 
+
+			// ======== bot =================
+
+			const settings = {
+				"async": true,
+				"crossDomain": true,
+				"url": "https://tech-news3.p.rapidapi.com/venturebeat",
+				"method": "GET",
+				"headers": {
+					"x-rapidapi-host": "tech-news3.p.rapidapi.com",
+					"x-rapidapi-key": "0df9a64d4dmshef637b6555ab817p197c06jsn23b1172de7c8"
+				}
+			};
+
+			$.ajax(settings).done(function (response) {
+
+				var containe = document.createElement("div");
+				containe.classList.add('bot');
+
+				var message = document.createElement("div");
+				message.classList.add('botText'); 
+
+				let x = Math.floor((Math.random() * 20) + 1);
+
+				var text = document.createTextNode(response[x]['title']);
+
+				message.appendChild(text);
+	 
+
+				containe.appendChild(message);
+				var element = document.getElementById("chat");
+				element.appendChild(containe);
+
+			});
+
+			
+
+		}
+		
+	}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

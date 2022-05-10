@@ -8599,8 +8599,16 @@ pre {
 .table-borderless tbody + tbody {
   border: 0; }
 
-.table-striped tbody tr:nth-of-type(odd) {
-  background-color: #000000; }
+.
+table-striped tbody tr:nth-of-type(odd) {
+  background: #77A7FF;
+  /* Old browsers */
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #77A7FF 0%, #190d36 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#77A7FF), to(#190d36));
+  background: -o-linear-gradient(left, #77A7FF 0%, #190d36 100%);
+  background: linear-gradient(to right,#77A7FF 0%, #190d36 100%); }
 
 .table-hover tbody tr:hover {
   color: #212529;
@@ -8822,7 +8830,8 @@ pre {
   .table-responsive > .table-bordered {
     border: 0; }
 
-.form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
+.
+form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
 .tt-query,
 .tt-hint {
@@ -8849,28 +8858,28 @@ pre {
   .jsgrid .jsgrid-table .jsgrid-filter-row select::-ms-expand, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number]::-ms-expand, .select2-container--default .select2-selection--single::-ms-expand, .select2-container--default .select2-selection--single .select2-search__field::-ms-expand, .typeahead::-ms-expand,
   .tt-query::-ms-expand,
   .tt-hint::-ms-expand {
-    background-color: transparent;
+    background-color: #832226;
     border: 0; }
   .form-control:-moz-focusring, .asColorPicker-input:-moz-focusring, .dataTables_wrapper select:-moz-focusring, .jsgrid .jsgrid-table .jsgrid-filter-row input:-moz-focusring[type=text],
   .jsgrid .jsgrid-table .jsgrid-filter-row select:-moz-focusring, .jsgrid .jsgrid-table .jsgrid-filter-row input:-moz-focusring[type=number], .select2-container--default .select2-selection--single:-moz-focusring, .select2-container--default .select2-selection--single .select2-search__field:-moz-focusring, .typeahead:-moz-focusring,
   .tt-query:-moz-focusring,
   .tt-hint:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 #495057; }
+    color: #1b8dbf;
+    text-shadow: 0 0 0 #0f4f8f; }
   .form-control:focus, .asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text],
   .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
   .tt-query:focus,
   .tt-hint:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #80bdff;
+    color: #1273d4;
+    background-color: #c32c2c;
+    border-color: #27609d;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
   .form-control::placeholder, .asColorPicker-input::placeholder, .dataTables_wrapper select::placeholder, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text]::placeholder,
   .jsgrid .jsgrid-table .jsgrid-filter-row select::placeholder, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number]::placeholder, .select2-container--default .select2-selection--single::placeholder, .select2-container--default .select2-selection--single .select2-search__field::placeholder, .typeahead::placeholder,
   .tt-query::placeholder,
   .tt-hint::placeholder {
-    color: #4b5564;
+    color: #0862de;
     opacity: 1; }
   .form-control:disabled, .asColorPicker-input:disabled, .dataTables_wrapper select:disabled, .jsgrid .jsgrid-table .jsgrid-filter-row input:disabled[type=text],
   .jsgrid .jsgrid-table .jsgrid-filter-row select:disabled, .jsgrid .jsgrid-table .jsgrid-filter-row input:disabled[type=number], .select2-container--default .select2-selection--single:disabled, .select2-container--default .select2-selection--single .select2-search__field:disabled, .typeahead:disabled,
@@ -8879,7 +8888,7 @@ pre {
   .jsgrid .jsgrid-table .jsgrid-filter-row select[readonly], .jsgrid .jsgrid-table .jsgrid-filter-row input[readonly][type=number], .select2-container--default .select2-selection--single[readonly], .select2-container--default .select2-selection--single .select2-search__field[readonly], .typeahead[readonly],
   .tt-query[readonly],
   .tt-hint[readonly] {
-    background-color: #e9ecef;
+    background-color: #1f77cf;
     opacity: 1; }
 
 input[type="date"].form-control, input.asColorPicker-input[type="date"], .jsgrid .jsgrid-table .jsgrid-filter-row input[type="date"][type=text], .jsgrid .jsgrid-table .jsgrid-filter-row input[type="date"][type=number], .select2-container--default input.select2-selection--single[type="date"], .select2-container--default .select2-selection--single input.select2-search__field[type="date"], input.typeahead[type="date"],
@@ -8918,8 +8927,8 @@ select.form-control:focus::-ms-value, select.asColorPicker-input:focus::-ms-valu
 .jsgrid .jsgrid-table .jsgrid-filter-row select:focus::-ms-value, .select2-container--default select.select2-selection--single:focus::-ms-value, .select2-container--default .select2-selection--single select.select2-search__field:focus::-ms-value, select.typeahead:focus::-ms-value,
 select.tt-query:focus::-ms-value,
 select.tt-hint:focus::-ms-value {
-  color: #495057;
-  background-color: #2A3038; }
+  color: #000000;
+  background-color: #1173ef; }
 
 .form-control-file,
 .form-control-range {
@@ -8952,7 +8961,7 @@ select.tt-hint:focus::-ms-value {
   margin-bottom: 0;
   font-size: 0.875rem;
   line-height: 1;
-  color: #212529;
+  color: #948b8b;
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0; }
@@ -8989,7 +8998,9 @@ textarea.tt-hint {
   height: auto; }
 
 .form-group {
-  margin-bottom: 1rem; }
+
+  margin-bottom: 1rem;
+}
 
 .form-text {
   display: block;
@@ -9016,7 +9027,7 @@ textarea.tt-hint {
   margin-left: -1.25rem; }
   .form-check-input[disabled] ~ .form-check-label,
   .form-check-input:disabled ~ .form-check-label {
-    color: #6c7293; }
+    color: #6782f1; }
 
 .form-check-label {
   margin-bottom: 0; }
@@ -9391,7 +9402,9 @@ fieldset:disabled .wizard > .actions a,
     .btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus,
     .show > .btn-success.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(38, 217, 116, 0.5); }
-
+.hh{
+  color: #000000;
+}
 .btn-info {
   color: #fff;
   background-color: #8f5fe8;
@@ -11398,16 +11411,16 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background: black;
+  background: #77A7FF;
   /* Old browsers */
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #0b0c0c 0%, #190d36 100%);
+  background: -webkit-linear-gradient(left, #77A7FF 0%, #190d36 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#0d0d0e), to(#190d36));
-  background: -o-linear-gradient(left, #0b0c0c 0%, #190d36 100%);
-  background: linear-gradient(to right, #0f0f10 0%, #190d36 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#77A7FF), to(#190d36));
+  background: -o-linear-gradient(left, #77A7FF 0%, #190d36 100%);
+  background: linear-gradient(to right,#77A7FF 0%, #190d36 100%);
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgb(222, 161, 161);
   border-radius: 0.25rem; }
   .card > hr {
     margin-right: 0;
@@ -11451,15 +11464,15 @@ input[type="button"].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+  background-color: rgb(210, 42, 42);
+  border-bottom: 1px solid rgb(231, 11, 37); }
   .card-header:first-child {
     border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0; }
 
 .card-footer {
   padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125); }
+  background-color: rgb(203, 176, 173);
+  border-top: 1px solid rgb(214, 190, 198); }
   .card-footer:last-child {
     border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px); }
 
@@ -15786,7 +15799,17 @@ code {
 /* Utilities */
 .grid-margin {
   margin-bottom: 1.5rem; }
+.aa{
+  background: #77A7FF;
+  /* Old browsers */
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #77A7FF 0%, #190d36 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#77A7FF), to(#190d36));
+  background: -o-linear-gradient(left, #77A7FF 0%, #190d36 100%);
+  background: linear-gradient(to right,#77A7FF 0%, #190d36 100%);
 
+}
 @media (min-width: 576px) {
   .grid-margin-sm-0 {
     margin-bottom: 0; } }
@@ -21132,7 +21155,14 @@ div.tagsinput {
       width: 100%; } }
 
 .content-wrapper {
-  background: #000000;
+  background: #77A7FF;
+  /* Old browsers */
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #77A7FF 0%, #190d36 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#77A7FF), to(#190d36));
+  background: -o-linear-gradient(left, #77A7FF 0%, #190d36 100%);
+  background: linear-gradient(to right,#77A7FF 0%, #190d36 100%);
   padding: 1.875rem 1.75rem;
   width: 100%;
   -webkit-flex-grow: 1;

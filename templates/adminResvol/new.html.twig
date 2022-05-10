@@ -1,0 +1,35 @@
+{% extends "backBase.html.twig" %}
+{% block body %}
+
+{{ form_start(form) }}
+                 
+                        
+                    <div class="form-group">
+                        <label for="blogName">date reservation :</label>
+                         {{form_widget(form.date_resVol,{'attr':{'class' : 'form-control' , 'placeholder' : 'choose depart vol '}})}}
+                        <div class="text-danger">{{form_errors(form.date_resVol) }} </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="blogDescription">companie : </label>
+                        {{form_widget(form.compagnie_aerienne,{'attr':{'class' : 'form-control' , 'placeholder' : 'choose Destination'}})}}
+                        <div class="text-danger">{{form_errors(form.compagnie_aerienne) }} </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="blogGame">Choose Classe : </label>
+                         {{form_widget(form.classe,{'attr':{'class' : 'form-control' , 'placeholder' : 'S/A/B'}})}}
+                        <div class="text-danger">{{form_errors(form.classe) }} </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="blogTeamCount">nombre personnes : </label>
+                        {{ form_widget(form.nb_personnes,{'attr':{'class':'form-control', 'placeholder':'countPersonne'}}) }}
+                        <div class="text-danger">{{form_errors(form.nb_personnes) }} </div>
+                    </div>
+                     
+                    
+                    
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-dark">Cancel</button>
+
+                {{form_end(form)}}
+                

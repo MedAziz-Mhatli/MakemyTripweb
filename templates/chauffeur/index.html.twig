@@ -1,0 +1,41 @@
+{% extends 'backBase.html.twig' %}
+
+{% block title %}Chauffeur index{% endblock %}
+
+{% block body %}
+    <h1>Chauffeur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Dob</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chauffeur in chauffeurs %}
+            <tr>
+                <td>{{ chauffeur.id }}</td>
+                <td>{{ chauffeur.nom }}</td>
+                <td>{{ chauffeur.email }}</td>
+                <td>{{ chauffeur.dob }}</td>
+                <td>{{ chauffeur.image }}</td>
+                <td>
+                    <a href="{{ path('app_chauffeur_show', {'id': chauffeur.id}) }}">show</a>
+                    <a href="{{ path('app_chauffeur_edit', {'id': chauffeur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_chauffeur_new') }}">Create new</a>
+{% endblock %}

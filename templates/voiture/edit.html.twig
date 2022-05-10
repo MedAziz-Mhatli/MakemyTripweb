@@ -1,0 +1,15 @@
+{% extends 'Backbase.html.twig' %}
+
+{% block title %}Edit Voiture{% endblock %}
+
+{% block body %}
+<div style="margin-top: 200px;">
+    <h1>Edit Voiture</h1>
+
+    {{ include('voiture/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_voiture_index') }}">back to list</a>
+
+    {{ include('voiture/_delete_form.html.twig') }}
+</div>
+{% endblock %}

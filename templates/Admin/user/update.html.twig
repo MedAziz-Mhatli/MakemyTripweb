@@ -1,0 +1,11 @@
+{% extends 'frontBase.html.twig' %}
+
+    {% block title %}Editer client{% endblock %}
+    {% block body %}
+        <h3>Editer client</h3>
+        {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+        {{ form(form) }}
+        <a href="{{ path('listeUser') }}">Retourner à la liste</a>
+        </div>
+        </section>
+    {% endblock %}

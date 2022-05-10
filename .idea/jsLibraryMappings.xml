@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{@fullcalendar/core, @fullcalendar/daygrid, @fullcalendar/interaction, @fullcalendar/timegrid, chart.js, font-awesome, loader}" />
+    <file url="PROJECT" libraries="{@fullcalendar/core, @fullcalendar/daygrid, @fullcalendar/interaction, @fullcalendar/timegrid, Chart.js, chart.js, font-awesome, loader}" />
   </component>
 </project>

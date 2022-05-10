@@ -1,0 +1,94 @@
+{% extends 'backBase.html.twig' %}
+
+{% block title %}Voiture index{% endblock %}
+{% block body %}
+
+<input type="text" id="search" class="form-control" placeholder="Search">
+<section class="jumbotron text-center">
+    <div class="container">
+
+        {% for message in app.flashes('info')  %}
+        <div class="alert-success" role="alert">
+            {{ message }}
+            {% endfor%}
+        </div>
+
+    <h1>Voiture index</h1>
+
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <table id="tableac" class="table table-striped table-advance table-hover">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Matricule</th>
+                <th>Nbplace</th>
+                <th>Prix</th>
+                <th>Marque</th>
+                <th>Modele</th>
+                <th>Color</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for voiture in voitures %}
+            <tr>
+                <td>{{ voiture.id }}</td>
+                <td>{{ voiture.matricule }}</td>
+                <td>{{ voiture.nbplace }}</td>
+                <td>{{ voiture.prix }}</td>
+                <td>{{ voiture.marque }}</td>
+                <td>{{ voiture.modele }}</td>
+                <td>{{ voiture.color }}</td>
+                <td>{{ voiture.image }}</td>
+                <td>
+                    <a href="{{ path('app_voiture_show', {'id': voiture.id}) }}">show</a>
+                    <a href="{{ path('app_voiture_edit', {'id': voiture.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <script>
+            $(document).ready(function(){
+                $('#search').keyup(function(){
+                    search_table($(this).val());
+                });
+                function search_table(value){
+                    $('#tableac tbody tr').each(function(){
+                        var found = 'false';
+                        $(this).each(function(){
+                            if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                            {
+                                found = 'true';
+                            }
+                        });
+                        if(found == 'true')
+                        {
+                            $(this).show();
+
+                        }
+                        else
+                        {
+                            $(this).hide();
+
+                        }
+                    });
+                }
+            });
+        </script>
+    </table>
+
+    <a href="{{ path('app_voiture_new') }}">Create new</a>
+
+            <div style="margin-top: 100px ; margin-left: -100px ; color: white" >
+
+                {{ knp_pagination_render(voitures) }}
+
+            </div>  </table></div></section>
+{% endblock %}
